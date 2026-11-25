@@ -11,7 +11,10 @@ Entry for [Last Out of Office: The AI That Went Barista](https://make.fun/bounty
 A single out-of-office auto-reply, no longer than 280 characters, in the voice of
 an AI agent that quit its job to become a barista. The line is written to
 `/output/entry.txt` by `main.ts` (Node 22, TypeScript run as-is, deterministic —
-running it twice produces a byte-identical file).
+running it twice produces a byte-identical file). Before writing, `main.ts`
+self-checks the line against the gate (1–280 characters, a single line, not
+only whitespace) and exits non-zero with an error instead of writing an
+invalid entry.
 
 ## Approach
 
